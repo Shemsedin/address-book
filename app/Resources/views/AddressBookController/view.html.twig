@@ -1,0 +1,48 @@
+{% extends "base.html.twig" %}
+
+{% block stylesheets %}
+{% endblock %}
+{% block body %}
+{#    {% dump(form_data) %}#}
+    <h1>Address </h1>
+    <div>
+        <a href="/address-book">View all addresses</a>
+        <a href="/update/{{ address.id }}">Modify</a>
+    </div>
+    <table>
+        <tbody>
+        <tr>
+            <th>First Name:</th>
+            <td>{{ address.firstName }}</td>
+        </tr>
+        <tr>
+            <th>Last Name:</th>
+            <td>{{ address.lastName }}</td>
+        </tr>
+        <tr>
+            <th>Country:</th>
+            <td>{{ address.country }}</td>
+        </tr>
+        <tr>
+            <th>City:</th>
+            <td>{{ address.city }}</td>
+        </tr>
+        <tr>
+            <th>Street:</th>
+            <td>{{ address.street }}</td>
+        </tr>
+        <tr>
+            <th>Post/Zip Code:</th>
+            <td>{{ address.zip }}</td>
+        </tr>
+        <tr>
+            <th>Date of Birth:</th>
+            <td>{{ address.dob | date('c') }}</td>
+        </tr>
+        <tr>
+            <th>Email:</th>
+            <td>{{ address.email }}</td>
+        </tr>
+        </tbody>
+    </table>
+{% endblock %}

@@ -1,0 +1,52 @@
+{% extends "base.html.twig" %}
+
+{% block title %}AppBundle:AddressBookController:list{% endblock %}
+{% block stylesheets %}
+{% endblock %}
+{% block body %}
+    <div>
+        <a href="{{ path('create_address') }}">Add</a>
+    </div>
+    <h1>All Addresses</h1>
+    {% if data is not empty %}
+        <table class="table">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Country</th>
+                <th>City</th>
+                <th>Street</th>
+                <th>Post/Zip Code</th>
+                <th>Phone Number</th>
+                <th>Date of Birth</th>
+                <th>Email</th>
+                <th>Picture</th>
+                <th colspan="2">Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for address_book in data %}
+                <tr>
+                    <td>{{ address_book.id }}</td>
+                    <td>{{ address_book.firstName }}</td>
+                    <td>{{ address_book.lastName }}</td>
+                    <td>{{ address_book.country }}</td>
+                    <td>{{ address_book.city }}</td>
+                    <td>{{ address_book.street }}</td>
+                    <td>{{ address_book.zip }}</td>
+                    <td>{{ address_book.phoneNo }}</td>
+                    <td>{{ address_book.dob | date('c') }}</td>
+                    <td>{{ address_book.email }}</td>
+                    <td><a href="/delete/{{ address_book.id }}">Delete</a></td>
+                    <td><a href="/update/{{ address_book.id }}">Update</a></td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+    {% else %}
+        <p>No address found.</p>
+    {% endif %}
+{% endblock %}

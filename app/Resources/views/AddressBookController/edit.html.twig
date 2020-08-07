@@ -1,0 +1,12 @@
+{% extends "base.html.twig" %}
+{% block stylesheets %}
+{% endblock %}
+{% block body %}
+    <h2>Address Details</h2>
+    <div id="address-book">
+        {#        {{ dump(form.vars.value) }}#}
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+        {{ form_end(form) }}
+    </div>
+{% endblock %}
